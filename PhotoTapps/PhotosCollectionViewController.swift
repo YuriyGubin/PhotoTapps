@@ -39,6 +39,14 @@ class PhotosCollectionViewController: UICollectionViewController {
 //        layout.minimumLineSpacing = 1
 //        layout.minimumInteritemSpacing = 1
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pickPhotoSegue" {
+            let photoVC = segue.destination as! PhotoViewController
+            let cell = sender as! PhotoCell
+            photoVC.image = cell.dogImageView.image
+        }
+    }
 
     /*
     // MARK: - Navigation
